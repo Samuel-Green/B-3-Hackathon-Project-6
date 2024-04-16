@@ -9,7 +9,7 @@ tags:
   - Phenology
 authors:
   - name: Elliot Shayle
-    orcid: XXXX-XXXX-XXXX-XXXX
+    orcid: 0009-0008-2994-0887
     affiliation: 1
   - name: Rocco Labadessa
     orcid: XXXX-XXXX-XXXX-XXXX

@@ -1,52 +1,56 @@
 ---
 title: 'Project 6: Phenological Diversity Trends By Remote Sensing Related Datacubes'
 tags:
-  - Rao's Q Index
-  - Time-Weighted Dynamic Time Warping
-  - Landscape Heterogeneity
-  - Remote Sensing
-  - Time Series
-  - Phenology
+- Rao's Q Index
+- Time-Weighted Dynamic Time Warping
+- Landscape Heterogeneity
+- Remote Sensing
+- Time Series
+- Phenology
+date: "03 April 2024"
+output:
+  word_document: default
+  pdf_document: default
 authors:
-  - name: Elliot Shayle
-    orcid: 0009-0008-2994-0887
-    affiliation: 1
-  - name: Rocco Labadessa
-    orcid: XXXX-XXXX-XXXX-XXXX
-    affiliation: 2
-  - name: Matteo Marcantonio
-    orcid: 0000-0003-3896-2355
-    affiliation: 3
-  - name: Chiara Richiardi
-    orcid: 0000-0002-2370-7768
-    affiliation: 4
-  - name: Saverio Vicario
-    orcid: 0000-0003-1140-0483
-    affiliation: 2
-affiliations:
- - name: Environmental Informatics, University of Marburg, Deutschhausstr. 12 - 35032, Marburg, Germany
-   index: 1 
- - name: CNR - IIA, Via Orabona, 4, Bari, Italy
-   index: 2
- - name: Joint European Research Center (Freelancer scientist), Ispra, Italy
-   index: 3
- - name: ENEA, Strada per Crescentino, 13, Turin, Italy
-   index: 4 
- 
-date: 03 April 2024
+- name: Elliot Shayle
+  orcid: 0009-0008-2994-0887
+  affiliation: 1
+- name: Matteo Marcantonio
+  orcid: 0000-0003-3896-2355
+  affiliation: 2
+- name: Rocco Labadessa
+  orcid: 0000-0002-8711-1648
+  affiliation: 3
+- name: Chiara Richiardi
+  orcid: 0000-0002-2370-7768
+  affiliation: 4
+- name: Saverio Vicario
+  orcid: 0000-0003-1140-0483
+  affiliation: 3
 bibliography: paper.bib
-authors_short: Shayle et al. (2024) Phenological Diversity Trends By Remote Sensing Related Datacubes
+authors_short: Shayle et al. (2024) Phenological Diversity Trends By Remote Sensing
+  Related Datacubes
 group: B-Cubed
 event: B-Cubed Hackathon 2024 - Hacking biodiversity data cubes for policy
-editor_options: 
-  markdown: 
+editor_options:
+  markdown:
     wrap: 72
+affiliations:
+- name: Environmental Informatics, University of Marburg, Deutschhausstr. 12, 35032
+    - Marburg, Germany
+  index: 1
+- name: Joint European Research Center (Freelancer scientist), Ispra, Italy
+  index: 2
+- name: CNR - IIA, Via Orabona, 4, Bari, Italy
+  index: 3
+- name: ENEA, Strada per Crescentino, 13, Turin, Italy
+  index: 4
 ---
 
 # Project 6: Phenological Diversity Trends By Remote Sensing Related Datacubes
 
-Authors: E. Shayle (1), M. Marcantonio (2), C. Richiardi (3), R.
-Labadessa (4), & S. Vicario (4)
+Authors: E. Shayle (1), M. Marcantonio\* (2), R. Labadessa (3), C.
+Richiardi (4), & S. Vicario (3)
 
 1: Environmental Informatics, University of Marburg, Deutschhausstr.
 12 - 35032, Marburg, Germany
@@ -57,48 +61,62 @@ Labadessa (4), & S. Vicario (4)
 
 4: CNR - IIA, Via Orabona, 4, Bari, Italy
 
+\* Corresponding author
+
 Keywords: Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape
 Heterogeneity, Remote Sensing, Time Series, & Phenology
 
 # Introduction:
 
-The B3 Hackathon brought together informaticians from a variety of
-institutions to rapidly create novel informatics solutions to the
-biodiversity challenges facing the planet. We identified that the
-addition of time-weighting to the R package "rasterdiv" would be a
-worthwhile contribution to the environmental informatics community.
-Rasterdiv was created to calculate diversity indices with data of the
-class "raster layer". Biodiversity indexes commonly focus on the spatial
-component. Here we outline how our extension to the pre-existing
-implementation of Rao's diversity indices [@Rocchini2017] can account
-for the temporal dimension of data, alongside the relevant biological
-context to our extension.
+The B3 Hackathon brought together computer scientists and ecologists
+from a variety of institutions to rapidly create novel informatics
+solutions to the biodiversity challenges facing the planet. We
+identified that the addition of time-weighting to the R package
+"`rasterdiv`" would be a worthwhile contribution to the environmental
+informatics community. `rasterdiv` was created to calculate diversity
+indices with data of the class "raster layer". Biodiversity indexes
+commonly focus on the spatial component. Here we outline how our
+extension to the pre-existing implementation of Rao's diversity indices
+[@Rocchini2017] can account for the temporal dimension of data,
+alongside the relevant biological context to our extension.
 
 ## The Importance of Biodiversity Indices:
 
-Heterogeneous ecosystems have been shown both experimentally and
-theoretically to provide greater utility to all the agents which
-comprise that ecosystem. This is through the provision of more and more
-varied niches for flora and fauna to propagate. This subsequently
-increases the value of ecosystem services provided to the communities
-surrounding an ecosystem. Heterogeneous ecosystems are typically also
-more resilient to disturbances they experience, likely because they have
-functional redundancy. Due to the centrality of biodiversity to healthy
-ecosystem functioning, quantitative measures of biodiversity are
-required to understand how ecosystems are responding to ongoing
-environmental changes, such as shifting land use.
+Ecosystems with heterogeneous biota have been shown both experimentally
+and theoretically to provide greater utility to all the agents which
+comprise that ecosystem [@Zhang2022]. This is through the provision of
+more resources and a greater variety of niches available for species.
+This subsequently increases the value of ecosystem services provided to
+the people in communities surrounding an ecosystem. Heterogeneous
+ecosystems are typically also more resilient to disturbances they
+experience, likely because they have functional redundancy [@Mace2012].
+Due to the centrality of biodiversity to healthy ecosystem functioning,
+quantitative measures of biodiversity are required to understand how
+ecosystems are responding to ongoing environmental changes, such as
+shifting land use patterns and climate change.
 
-Shannon's H value has been widely used as a proxy for biodiversity, but
-can be inadequate when applied to the new kinds of data generated by
-remote sensing platforms (e.g. images from Earth observation
-satellites). To create quantified data from ecosystems, most analytical
-approaches assess discrete points within the ecosystem, such as those
-from a quadrat, or pixels in the case of aerial remote sensing datasets.
-One limitation is that Shannon's H value is that it does not consider
-the distance between each sampled point (whether they are species,
-pixel, or any other quantitative abstractions of an observation). This
-approach treats all objects within a dataset as equally distant from one
-another.
+Novel satellite remote sensing tools often generate large amounts of
+data about the Earth's surface, due to their almost constant temporal
+coverage and increasingly precise spatial resolution [@Frazier2021]. The
+big data generated by these systems need to be interpreted effectively
+to accurately detect and describe ecosystem trends, such as a change in
+ecosystem diversity. Consequently, information theory has been used to
+build the analytical tools which are now regularly used to assess remote
+sensing datasets. For example, Shannon's H value has been widely used as
+a proxy for biodiversity, but can be inadequate when applied to the new
+kinds of data generated by remote sensing platforms (e.g. images from
+Earth observation satellites). To create data from ecosystems which can
+be scientifically interpreted, most analytical approaches would assess
+discrete points within the ecosystem, such as those from a quadrat or
+transect. In the case of aerial remote sensing datasets, pixels have now
+replaced quadrats as the smallest unit of analysable data. A limitation
+of Shannon's H value is that it does not consider the distance between
+each sampled point (whether they are species incidences, pixels, or any
+other quantitative abstractions of an observation). This approach treats
+all objects within a dataset as equally distant from one another, thus
+measures of Shannon's H value are prone to saturation even when only
+marginal differences are observed within the objects in a remote sensing
+dataset.
 
 Rao's Quadratic Diversity Index (Rao's Q) adds space as a trait to its
 abstraction of biodiversity by accounting for the distance between
@@ -107,10 +125,11 @@ Shannon's H, Rao's Q has been demonstrated experimentally to offer
 greater efficacy when representing biodiversity in aerial remote sensing
 datasets [@Rocchini2021], for which pixels are the discrete observation
 units. However, Rao's Q remains limited by its inability to assess trait
-change over time. Current implementations of the index only assess one
-snapshot of the data at a time. We set out to overcome this limitation
-by incorporating Time-Weighted Dynamic Time Warping (TWDTW) to include
-time as a component of the distance variable within Rao's Q.
+change over time. Current implementations of the index (for example in
+the `rasterdiv` R package [@Rocchini2021]) only assess one snapshot of
+the data at a time. We set out to overcome this limitation by
+incorporating Time-Weighted Dynamic Time Warping (TWDTW) to include time
+as a component of the distance variable within Rao's Q.
 
 ## The Purpose of (Time-Weighted) Dynamic Time Warping & its Ecological Utility:
 
@@ -136,34 +155,36 @@ different phenologies. This has been successfully demonstrated by
 Amazon, and was a more effective tool than standard DTW when applied to
 heterogeneous biological environments like these.
 
-Equation:
+## Equation:
 
-![TWDTW Equation from Maus
-2016](Figures-Images-USW/TWDTW%20Equation%20from%20Maus%202016.png)
+$$ \omega_{i,j} = \frac{1}{1 + e^{-\alpha(g(t_i,t_j) - \beta)}} $$
 
 Reproduced from Maus [@Maus2016]. In addition to the standard cost
 matrix of the DTW function, they also propose the equation above to
 implement a temporal cost. In the equation α is the steepness of the
 logistic function used for penalisation of time distance, and β is the
-midpoint of the curve. Lastly, $g(ti,tj)$ represents the time elapsed
-between the dates evaluated in the match ($ti$ and $tj$ times of the
-"i"th and "j"th observations).
+midpoint of the curve. Lastly, $g(t_i,t_j)$ represents the time elapsed
+between the dates evaluated in the match ($t_i$ and $t_j$ times of the
+"$i$"th and "$j$"th observations).
 
-In this manuscript, we used optical aerial remote sensing data derived
-from a small, grazed grassland site in Calabria, Italy to demonstrate
+In this manuscript, we used Sentinel 2's optical aerial remote sensing
+data of a small, grazed grassland site in Calabria, Italy to demonstrate
 and evaluate our R-based implementation of phenology into Rao's Q index.
 We also evaluate its efficacy in comparison to Shannon's H and
 unmodified Rao's Q indices.
 
 # Case Study and Results:
 
-## Implementation within rasterdiv
+## Implementation within `rasterdiv`:
 
 We implemented this method within the existing `paRao()` function of the
-rasterdiv R package. We used the `twtwd` function from the `twdtw` R
-package [@Maus2019]. This package uses C++ to compute the TWDTW.
+`rasterdiv` R package. We used the `twtwd` function from the `twdtw` R
+package [@Maus2019]. This package is a wrapper for a C++ implementation
+of TWDTW.
 
-The resulting implementation of our code is as follows:
+The Rao's index with twdtw distance calculated over a time-series of
+imageries can thus be derived using the following R function:
+
 `paRao(x=time.series, time_vector=time, window=11, alpha=1, na.tolerance=0, method="multidimension", dist_m="twdtw", simplify=4, np=8)`
 
 The arguments and our input parameters of which are:
@@ -203,50 +224,87 @@ The study site was a small (5 hectare) patch within the Macchia Sacra
 Special Protection Area. It was selected as it was suitable for thorough
 imaging by drone, as this formed the basis of our ground-truthed
 observations of Biodiversity. With the expertise in classification
-imparted by one of our co-authors, we defined 8 types of ecological
-communities within the study site. The area is characterized by the
-presence of a road on on the north-east part of the site. From the level
-of the road the elevation declines to a lower part that features a sharp
-canyon running south to west, the result of a previous small stream
-which had dried up by the time of our drone survey. This part of the
-study site is characterized by hydrophilic vegetation. Between these two
-extremes is a small hill which culminates in a plateau. The plateau is
-the resting area of a herd of cows which graze in the area. This area is
-much dryer and subject to strong pasture pressure and mechanical
+imparted by an expert botanist, we defined 8 types of plant communities
+within the study site ([Figure 1](#Figure 1)). The area is characterized
+by the presence of a road on the north-east part of the site. From the
+level of the road the elevation declines to a lower part that features a
+sharp canyon running south to west, the result of a previous small
+stream which had dried up by the time of our drone survey. This part of
+the study site is characterized by hydrophilic vegetation. Between these
+two extremes is a small hill which culminates in a plateau. The plateau
+is the resting area of a herd of cows which graze in the area. This area
+is much dryer and subject to strong pasture pressure and mechanical
 disruption, but is more nutrient which, owing to the presence of cow
 manure.
 
 ## Evaluation of the Efficacy of our Results:
 
-We used 144 Sentinel2 images from HRVPP of Phenological Plant Index
-(PPI) covering all images taken during 2023. Each image was 20 by 27
-pixels. The PPI index was chosen as it is minimally influenced by soil
-signal and the presence of shadows [@karkauskaite2017evaluation]. Using
-these data, we applied 3 analytical approaches to measure biodiversity:
-The Shannon's Biodiversity index applied on the mean yearly value with 3
-significant digits of the PPI trajectory; the Rao's Q index with
-different values of α, applied to the same dataset; and the Rao's Q
-index with our implementation of the TWDTW function across the full time
-series of 144 images. A gross visual inspection of Figure 1 illustrates
-the inviability of the Shannon's H index, because using 3 digits, all
-pixels had different mean biodiversity values and it was not possible to
-classify the ecosystem into different groups. The standard Rao's Q index
-correctly identified the main biodiversity hotspot as the plateau atop
-the hill, and a secondary hotspot where the road intersects with the
-study site. We observed that Rao's Q index does not change, changing
-alpha given that all pixels are different. Finally, our new
+We used 144 Sentinel 2 images from HRVPP of Plant Phenological Index
+(PPI) covering all images taken during 2023. The dimensions of each
+image were 20 by 27 pixels. The PPI index was chosen as it is minimally
+influenced by soil signal and the presence of shadows
+[@karkauskaite2017evaluation]. Using these data, we applied 3 analytical
+approaches to measure biodiversity: The Shannon's Biodiversity index
+applied to the mean yearly value with 3 significant digits of the PPI
+trajectory; the Rao's Q index with different values of α, applied to the
+same dataset; and the Rao's Q index with our implementation of the TWDTW
+function across the full time series of 144 images. A gross visual
+inspection of [Figure 3](#Figure 3) illustrates the inviability of the
+Shannon's H index, because using a moving window that was 3 pixels wide,
+all pixels had different mean biodiversity values and it was not
+possible to classify the ecosystem into different groups. The standard
+Rao's Q index correctly identified the main biodiversity hotspot as the
+plateau atop the hill, and a secondary hotspot where the road intersects
+with the study site. We observed that Rao's Q index does not change,
+changing alpha given that all pixels are different. Finally, our new
 implementation of distance resulted in two meaningful differences from
 the standard Rao's Q index: the road is no longer a secondary hotspot,
 and the main biodiversity hotspot moved at the borders between two of
 the communities identified by our expert.
 
-![Figure
-1](Figures-Images-USW/Figure%201%20Time%20Series%20of%20PPI%20for%20Study%20Site%20V1.1.png)
+![Figure 1: A drone image giving an overview of the study site and its
+surroundings within Calabria. The 8 different plant community types are
+overlaid as differently coloured masks upon the image. The subset of the
+study site which was also imaged by Sentinel 2 satellites is indicated
+within the red
+rectangle.](Figures-Images-USW/Figure%201%20study%20area%20V1.0.png){#Figure 1
+.Figure}
 
-![Figure
-2](Figures-Images-USW/Figure%202%20Results%20Overview%20Index%20Comparison%20V1.0.png)
+![Figure 2: A time series chart illustrating changes in the Plant
+Phenological Index for every pixel within the study site in
+Calabria.](Figures-Images-USW/Figure%202%20Time%20Series%20of%20PPI%20for%20Study%20Site%20V1.1.png){#Figure 2
+.Figure}
+
+![Figure 3: A 4 panel plot comparing the efficacy of different diversity
+indices at measuring biodiversity within our grassland ecosystem in
+Calabria. The scale bar to the right of each plot indicates the assessed
+biodiversity value in the index being tested (e.g. Shannon's H index or
+Rao's Quadratic Entropy
+index).](Figures-Images-USW/Figure%203%20Results%20Overview%20Index%20Comparison%20V1.0.png){#Figure 3
+.Figure}
 
 # Discussion:
+
+In this hackathon, we developed a streamlined method for implementing
+the TWDTW algorithm to calculate Rao's quadratic entropy index within
+the `rasterdiv` R package. This addition introduces a temporal dimension
+to the traditional spatial analysis of landscape diversity. Recognising
+the dynamic nature of plant communities and ecosystems over time, our
+method integrates phenological variation into diversity assessments
+derived from satellite imagery. Notably, our case study found that when
+this technique was applied to multiband remotely sensed data from
+disturbed grasslands, that accounting for phenological cycles can refine
+diversity indices by filtering out artefacts. For instance, it can help
+to distinguish between semi-natural habitats and artificial land covers,
+like roads, which lack temporal phenological shifts. These artificial
+features tend to form clusters of minimal DTW distances when considering
+DTW as an inter-voxel distance, leading to lower Rao's index values.
+
+By incorporating temporal dynamics into the `rasterdiv` R package, we
+broaden the scope for analysing remotely sensed time series. This
+advancement enriches the suite of diversity indices obtainable from
+remote sensing data, potentially offering a more comprehensive
+understanding of landscape heterogeneity.
 
 # GitHub and Data Repositories:
 

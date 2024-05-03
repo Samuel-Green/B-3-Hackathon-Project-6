@@ -318,6 +318,7 @@ all be found on the open source GitHub repository
 Dr. Quentin Groom of Meise Botanic Garden for co-ordinating the project.
 
 Laura Abraham of Meise Botanic Garden for organising the event.
+Prof. Nicodemo Passalacqua (University of Calabria) to kindly shared the ground truth data within pilot project 2.3.2 of the Tech4you PNRR project
 
 The European Union's Horizon Europe Research and Innovation Programme
 (ID No 101059592) for funding the B3 programme, and thus, this event.

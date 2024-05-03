@@ -213,9 +213,9 @@ the unit specified by the `time_scale` argument (i.e. it should be
 expressed in days).
 
 `cycle_length` A string value. Valid input arguments are "year",
-"month", and "day".
+"month", and "day". <!-- The length of the cycle. Can be a numeric value or a string specifying the units ('year', 'month', 'day', 'hour', 'minute', 'second'). When numeric, the cycle length is in the same units as time_scale. When a string, it specifies the time unit of the cycle. -->
 
-`time_scale` "day"
+`time_scale` "day" <!-- Specifies the time scale for the conversion. Must be one of 'year', 'month', 'day', 'hour', 'minute', 'second'. When cycle_length is a string, time_scale changes the unit in which the result is expressed. When cycle_length is numeric, time_scale is used to compute the elapsed time in seconds. -->
 
 Other arguments remain unchanged.
 

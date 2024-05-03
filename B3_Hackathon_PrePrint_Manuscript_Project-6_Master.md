@@ -57,7 +57,7 @@ Richiardi (4), & S. Vicario (3)
 
 2: Joint European Research Center (Freelance scientist), Ispra, Italy
 
-3: ENEA, Strada per Crescentino, 13, Turin, Italy
+3: ENEA, Strada per Crescentino, 13, Saluggia (VC), Italy
 
 4: CNR - IIA, Via Orabona, 4, Bari, Italy
 

@@ -314,8 +314,6 @@ advancement enriches the suite of diversity indices obtainable from
 remote sensing data, potentially offering a more comprehensive
 understanding of landscape heterogeneity.
 
-<!--# Elliot develop discussion!!! Also reference Figure 2. There were a few plants having seasonality in winter. Figure 2 demonstrates that the majority of plants show a big shift in spring-->
-
 # GitHub and Data Repositories:
 
 This manuscript, previous revisions, open source data, and scripts can

@@ -177,8 +177,8 @@ unmodified Rao's Q indices.
 
 We implemented this method within the existing `paRao()` function of the
 `rasterdiv` R package. We used the `twtwd` function from the `twdtw` R
-package [@Maus2019]. This package is a wrapper for a C++ implementation
-of TWDTW.
+package [@MausTWDTW2023]. This package is a wrapper for a C++
+implementation of TWDTW.
 
 The Rao's index with twdtw distance calculated over a time-series of
 imageries can thus be derived using the following R function:
@@ -201,21 +201,30 @@ then the pattern it is being compared to must also have observations on
 days `c(1, 3, 7, ...)`.
 
 `steepness` A continuous numeric value corresponding to the α variable
-from the time-weighting function in Maus [@Maus2016]. Lower or higher
-values of α ...increase or decrease?... penalisation for deviations from
-the pattern time.
+from the time-weighting function in Maus [@Maus2016]. Different values
+of α can increase or decrease penalisation for deviations from the
+pattern time.
 
 `midpoint` A numeric value corresponding to the β variable from the
 time-weighting function in Maus [@Maus2016]. The input data must be of
-the unit specified by the `time_scale` argument (i.e. it should be
-expressed in days).
+the unit specified by the `time_scale` argument (e.g. in our example it
+is expressed in days).
 
-`cycle_length` A string value. Valid input arguments are "year",
-"month", and "day".
+`cycle_length` This argument indicates the length of a single cycle.
+This argument can accept either a string or numeric value. Valid string
+input values are "year", "month", "day", "hour", "minute", and "second".
+String inputs are also passed to the `time_scale` argument. Numeric
+input values must be the same unit specified by the `time_scale`
+argument.
 
-`time_scale` "day"
+`time_scale` This argument sets the units of the TWDTW function's cycle
+length. Valid string input values are "year", "month", "day", "hour",
+"minute", and "second". If the input given to `cycle_length` is a string
+value, then this argument will change the units given in the output.
+Alternatively, if a numeric value is given to `cycle_length`, then this
+argument will compute the elapsed time in seconds.
 
-Other arguments remain unchanged.
+Other arguments remain unchanged from [@MausTWDTW2023].
 
 ## Study Site Description:
 
@@ -272,7 +281,7 @@ rectangle.](Figures-Images-USW/Figure%201%20study%20area%20V1.0.png){#Figure_1
 ![Figure 2: A time series chart illustrating changes in the Plant
 Phenological Index for every pixel within the study site in
 Calabria.](Figures-Images-USW/Figure%202%20Time%20Series%20of%20PPI%20for%20Study%20Site%20V1.1.png){#Figure_2
-.Figure}
+.Figure width="406"}
 
 ![Figure 3: A 4 panel plot comparing the efficacy of different diversity
 indices at measuring biodiversity within our grassland ecosystem in

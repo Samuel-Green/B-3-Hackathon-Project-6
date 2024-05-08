@@ -9,8 +9,10 @@ tags:
 - Phenology
 date: "03 April 2024"
 output:
-  word_document: default
+  html_document:
+    df_print: paged
   pdf_document: default
+  word_document: default
 authors:
 - name: Elliot Shayle
   orcid: 0009-0008-2994-0887
@@ -230,19 +232,19 @@ Other arguments remain unchanged from [@MausTWDTW2023].
 
 The study site was a small (5 hectare) patch within the Macchia Sacra
 Special Protection Area. It was selected as it was suitable for thorough
-imaging by drone, as this formed the basis of our ground-truthed
-observations of Biodiversity. With the expertise in classification
-imparted by an expert botanist, we defined 8 types of plant communities
-within the study site ([Figure 1](#Figure_1)). The area is characterized
-by the presence of a road on the north-east part of the site. From the
-level of the road the elevation declines to a lower part that features a
-sharp canyon running south to west, the result of a previous small
-stream which had dried up by the time of our drone survey. This part of
-the study site is characterized by hydrophilic vegetation. Between these
-two extremes is a small hill which culminates in a plateau. The plateau
-is the resting area of a herd of cows which graze in the area. This area
-is much dryer and subject to strong pasture pressure and mechanical
-disruption, but is more nutrient which, owing to the presence of cow
+imaging by drone, which formed the basis of our ground-truthed
+Biodiversity observations. With the expertise in classification imparted
+by an expert botanist, we defined 8 types of plant communities within
+the study site ([Figure 1](#Figure_1)). The area is characterized by the
+presence of a road on the north-east part of the site. From the level of
+the road the elevation declines to a lower part which features a sharp
+canyon running south to west, the result of a previous small stream
+which had dried up by the time of our drone survey. This part of the
+study site is characterized by hydrophilic vegetation. Between these two
+extremes is a small hill which culminates in a plateau. The plateau is
+the resting area of a herd of cows which graze in the area. This area is
+much dryer and subject to strong pasture pressure and mechanical
+disruption, but is more nutrient which, due to the presence of cow
 manure.
 
 ## Evaluation of the Efficacy of our Results:
@@ -256,18 +258,18 @@ approaches to measure biodiversity: The Shannon's Biodiversity index
 applied to the mean yearly value with 3 significant digits of the PPI
 trajectory; the Rao's Q index with different values of α, applied to the
 same dataset; and the Rao's Q index with our implementation of the TWDTW
-function across the full time series of 144 images. A gross visual
-inspection of [Figure 3](#Figure_3) illustrates the inviability of the
-Shannon's H index, because using a moving window that was 3 pixels wide,
-all pixels had different mean biodiversity values and it was not
-possible to classify the ecosystem into different groups. The standard
+function across the full time series of 144 images. A simple visual
+inspection of [Figure 3](#Figure_3) illustrates the unsuitability of
+Shannon's H index, as when using a 3 pixel wide moving window, all
+pixels exhibited different mean biodiversity values and it was
+impossible to classify the ecosystem into different groups. The standard
 Rao's Q index correctly identified the main biodiversity hotspot as the
 plateau atop the hill, and a secondary hotspot where the road intersects
 with the study site. We observed that Rao's Q index does not change,
 changing alpha given that all pixels are different. Finally, our new
 implementation of distance resulted in two meaningful differences from
 the standard Rao's Q index: the road is no longer a secondary hotspot,
-and the main biodiversity hotspot moved at the borders between two of
+and the main biodiversity hotspot moved to the borders between two of
 the communities identified by our expert.
 
 ![Figure 1: A drone image giving an overview of the study site and its
@@ -303,16 +305,45 @@ derived from satellite imagery. Notably, our case study found that when
 this technique was applied to multiband remotely sensed data from
 disturbed grasslands, that accounting for phenological cycles can refine
 diversity indices by filtering out artefacts. For instance, it can help
-to distinguish between semi-natural habitats and artificial land covers,
-like roads, which lack temporal phenological shifts. These artificial
-features tend to form clusters of minimal DTW distances when considering
-DTW as an inter-voxel distance, leading to lower Rao's index values.
+to distinguish between semi-natural habitats and artificial land cover
+types, like roads, which lack temporal phenological shifts. These
+artificial features tend to form clusters of minimal DTW distances when
+considering DTW as an inter-voxel distance, leading to lower Rao's index
+values.
+
+Remote sensing via Earth observation remains a rapidly developing area
+of scientific research with wide applicability to conservation practice
+[@Pettorelli2014]. As the technologies continue to mature, the
+possibilities remote sensing approaches like ours offer continues to
+grow. For instance, Schulte to Bühne *et al* [@SchultetoBuhne2022]
+recently demonstrated the power of Earth observation satellites to
+assess rewilding efforts at the landscape scale. Rewilding programmes
+are notoriously challenging technically, and are often expensive, too.
+Thus, the ability to assess the progress of rewilding inexpensively at
+the landscape scale via satellite is eminently valuable. However, as
+Maus *et al* [@Maus2016] observed, markedly different land use types,
+such as soy bean plantations and primary rainforest, can be erroneously
+classified as the same via an NDVI based classification protocol which
+does not consider phenology. Lopes *et al* [@Lopes2020] also found that
+accounting for the effects of phenology significantly increased the
+accuracy of land use classifications. As rewilding and reforestation
+programmes continue, our implementation of TWDTW reduces the barrier for
+conservationists trying to assess diversity temporally in addition to
+spatially. Our case study further demonstrated that incorporation of
+phenological data enhances a the inferential power of analyses, as
+incorporation of the temporal dimension more accurately identified
+biodiversity hotspots than Rao's Q index alone ([Figure 3](#Figure_3)).
+Since increasing biodiversity is typically a core goal of rewilding
+programmes, of which land cover diversity is a core component
+[@Skidmore2015], more accurate classification of landscape diversity can
+highlight where efforts are succeeding or where further efforts are
+needed.
 
 By incorporating temporal dynamics into the `rasterdiv` R package, we
 broaden the scope for analysing remotely sensed time series. This
 advancement enriches the suite of diversity indices obtainable from
-remote sensing data, potentially offering a more comprehensive
-understanding of landscape heterogeneity.
+remote sensing data, enhancing our understanding of landscape
+heterogeneity, and in so doing, enhancing our ability to conserve it.
 
 # GitHub and Data Repositories:
 
@@ -323,15 +354,19 @@ all be found on the open source GitHub repository
 
 # Acknowledgements:
 
-Dr. Quentin Groom of Meise Botanic Garden for co-ordinating the project.
+We thank:
 
-Laura Abraham of Meise Botanic Garden for organising the event.
+-   Dr. Quentin Groom of Meise Botanic Garden for co-ordinating the
+    project.
 
-Prof. Nicodemo Passalacqua (University of Calabria) who kindly shared
-the ground-truthing data within pilot project 2.3.2 of the Tech4you PNRR
-project
+-   Laura Abraham of Meise Botanic Garden for organising the event.
 
-The European Union's Horizon Europe Research and Innovation Programme
-(ID No 101059592) for funding the B3 programme, and thus, this event.
+-   Prof. Nicodemo Passalacqua (University of Calabria) who kindly
+    shared the ground-truthing data within pilot project 2.3.2 of the
+    Tech4you PNRR project.
+
+-   The European Union's Horizon Europe Research and Innovation
+    Programme (ID No 101059592) for funding the B3 programme, and thus,
+    this event.
 
 # References:

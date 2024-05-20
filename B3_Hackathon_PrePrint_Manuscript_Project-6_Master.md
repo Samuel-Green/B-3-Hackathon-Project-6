@@ -45,7 +45,7 @@ affiliations:
 - name: Environmental Informatics, University of Marburg, Deutschhausstr. 12, 35032
     - Marburg, Germany
   index: 1
-- name: Joint European Research Center (Freelancer scientist), Ispra, Italy
+- name: Landlife Ecospatial Labs, Via Del Giontech, 1, Mezzocorna (TR), Italy
   index: 2
 - name: CNR - IIA, Via Orabona, 4, Bari, Italy
   index: 3
@@ -69,7 +69,7 @@ Richiardi (4), & S. Vicario (3)
 [marcantoniomatteo\@gmail.com](mailto:marcantoniomatteo@gmail.com){.email}
 
 Keywords: Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape
-Heterogeneity, Remote Sensing, Time Series, & Phenology
+Heterogeneity, Remote Sensing, Time Series, Phenology
 
 # Introduction:
 
@@ -80,6 +80,7 @@ identified that the addition of time-weighting to the R package
 "`rasterdiv`" would be a worthwhile contribution to the environmental
 informatics community. `rasterdiv` was created to calculate biodiversity
 indices from numerical matrices in the R programming environment.
+
 Biodiversity indices included in `rasterdiv` currently focus on the
 spatial component. Here we outline how our extension to the pre-existing
 implementation of Rao's Q diversity indices [@Rocchini2017] can
@@ -187,7 +188,7 @@ from the `twdtw` R package [@MausTWDTW2023] which is a wrapper for C++
 implementations of TWDTW functions. In particular, the `twtwd` method
 was implemented through the internal hidden function `.mtwdtw`:
 
-``` r
+``` {#Code_1 .r .Code}
 .mtwdtw <- function(x, time_vector = 0, stepness = -0.5, midpoint = 35, cycle_length = "year", time_scale = "day") {
     twdtw::twdtw(
         x = data.frame(time = time_vector, v = x[[1]]), 
@@ -206,7 +207,7 @@ index is calculated using the computed distances and the specified
 matrices or images, Rao's Q index can be calculated using the following
 R function:
 
-``` r
+``` {#Code_2 .r .Code}
 paRao(x = time.series, 
   time_vector = time, 
   window = 3, 
@@ -217,7 +218,7 @@ paRao(x = time.series,
   dist_m = "twdtw", 
   midpoint = 35,
   stepness = -0.5
-  )`
+  )
 ```
 
 The arguments and our input parameters of which are:
@@ -240,9 +241,9 @@ its Rao's Q index value will be `NA`, since DTW does not allow for no
 data values.
 
 `steepness` A continuous numeric value corresponding to the $\alpha$
-variable from the time-weighting function in Maus [@Maus2016]. Different
-values of $\alpha$ can increase or decrease penalisation for deviations
-from the pattern time.
+variable from the time-weighting function in Maus *et al* [@Maus2016].
+Different values of $\alpha$ can increase or decrease penalisation for
+deviations from the pattern time.
 
 `midpoint` A numeric value corresponding to the $\beta$ variable from
 the time-weighting function in Maus *et al* [@Maus2016]. The input data
@@ -285,8 +286,6 @@ graze in the area. This area is much dryer and subject to strong pasture
 pressure and mechanical disruption, but is more nutrient which, due to
 the presence of cow manure.
 
-<center>
-
 ![Figure 1: A true colour RGB satellite image (Map data: Google, Maxar
 Technologies 2023) giving an overview of the study site and its
 surroundings within Calabria. The eight different plant community types
@@ -295,8 +294,6 @@ image. The subset of the study site which was extracted from SENTINEL-2
 data is indicated within the red
 rectangle.](Figures-Images-USW/Figure%201%20study%20area%20V1.0.png){#Figure_1
 .Figure width="700"}
-
-</center>
 
 ## Efficacy Evaluation of our Results:
 
@@ -309,15 +306,11 @@ by 27 pixels horizontally, and each pixel was 10m^2^. The PPI index was
 chosen as it is minimally influenced by soil signal and the presence of
 shadows [@karkauskaite2017evaluation].
 
-<center>
-
 ![Figure 2: A time series illustrating changes in the value of the Plant
 Phenological Index (PPI) for every pixel within the Macchia Sacra
 Special Protection Area study site in
 Calabria.](Figures-Images-USW/Figure%202%20Time%20Series%20of%20PPI%20for%20Study%20Site%20V1.1.png){#Figure_2
 .Figure width="600"}
-
-</center>
 
 Using these data, we applied three analytical approaches to measure
 biodiversity: i) The Shannon's Biodiversity index applied to the mean
@@ -338,8 +331,6 @@ is no longer a "diversity" hotspot, and the main biodiversity hotspot
 moved to the borders between two of the communities identified by our
 expert.
 
-<center>
-
 ![Figure 3: A four panel plot comparing the efficacy of different
 diversity indices at measuring biodiversity within our grassland
 ecosystem in Calabria. The white contour lines represent different plant
@@ -349,8 +340,6 @@ the assessed biodiversity value in the index being tested (e.g.
 Shannon's H index or Rao's Quadratic Diversity
 index).](Figures-Images-USW/Figure%203%20Results%20Overview%20Index%20Comparison%20V1.0.png){#Figure_3
 .Figure}
-
-</center>
 
 # Discussion:
 
@@ -384,21 +373,21 @@ ecosystem in question functions throughout the year. This primary spike
 in PPI also presents the widest observed range in PPI values, which
 enables biodiversity indices to better classify the different types of
 floral communities present. Furthermore, [Figure
-2](#0){style="font-size: 11pt;"} highlights two interesting secondary
-PPI peaks: one in spring prior to the primary spike in PPI, and the
-other beginning in October and continuing throughout the winter. Though
-neither peak is as consistent side wide nor presents the same magnitude
-of increase in PPI, they are nevertheless ecologically significant.
-These secondary peaks likely represent floral communities which are
-exploiting different temporal niches, and like an oasis in the desert,
-likely also create unique niches to support a more biodiverse ecosystem.
-Again, an analytical approach which does not consider phenology would
-misrepresent the functioning of the ecosystem. Additionally, using a
-traditional DTW approach to consider phenology would erase ecological
-detail, as the smaller secondary peaks would have been warped to match
-the rest of the site. Thus, our approach using TWDTW can provide a
-valuable new level of insight into ecosystem functioning and
-biodiversity.
+2](#Figure_2){style="font-size: 11pt;"} highlights two interesting
+secondary PPI peaks: one in spring prior to the primary spike in PPI,
+and the other beginning in October and continuing throughout the winter.
+Though neither peak is as consistent side wide nor presents the same
+magnitude of increase in PPI, they are nevertheless ecologically
+significant. These secondary peaks likely represent floral communities
+which are exploiting different temporal niches, and like an oasis in the
+desert, likely also create unique niches to support a more biodiverse
+ecosystem. Again, an analytical approach which does not consider
+phenology would misrepresent the functioning of the ecosystem.
+Additionally, using a traditional DTW approach to consider phenology
+would erase ecological detail, as the smaller secondary peaks would have
+been warped to match the rest of the site. Thus, our approach using
+TWDTW can provide a valuable new level of insight into ecosystem
+functioning and biodiversity.
 
 Remote sensing via Earth observation remains a rapidly developing area
 of scientific research with wide applicability to conservation practice
@@ -422,11 +411,11 @@ of diversity in addition to the spatial dimension. Our case study
 further demonstrated that incorporation of phenological data enhances
 the inferential power of analyses, as this dimension more accurately
 identified biodiversity hotspots than Rao's Q index alone ([Figure
-3](#0)). Since increasing biodiversity is typically a core goal of
-rewilding programmes, of which land cover diversity is a core component
-[@Skidmore2015], more accurate classification of landscape diversity can
-highlight where efforts are succeeding or where further efforts are
-needed.
+3](#Figure_3)). Since increasing biodiversity is typically a core goal
+of rewilding programmes, of which land cover diversity is a core
+component [@Skidmore2015], more accurate classification of landscape
+diversity can highlight where efforts are succeeding or where further
+efforts are needed.
 
 # Conclusion
 

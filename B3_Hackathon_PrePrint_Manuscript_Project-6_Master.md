@@ -36,8 +36,12 @@ authors:
 bibliography: Paper.bib
 authors_short: Shayle et al. (2024) Phenological Diversity Trends By Remote Sensing
   Related Datacubes
-group: B-Cubed
-event: B-Cubed Hackathon 2024 - Hacking biodiversity data cubes for policy
+group: Project 6
+event: Hacking Biodiversity Data Cubes for Policy, Brussels, Belgium, 2024
+biohackathon_name: Hacking Biodiversity Data Cubes for Policy
+biohackathon_url: https://b-cubed.eu/b-cubed-hackathon
+biohackathon_location: Brussels, Belgium
+
 editor_options:
   markdown:
     wrap: 72

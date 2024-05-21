@@ -268,7 +268,7 @@ Other arguments remain unchanged from [@MausTWDTW2023].
 
 ## Study Site Description & Plant Biodiversity Data:
 
-The study site was a small (5 hectare) area within the protected area of
+The study site was a small (6 hectare) area within the protected area of
 "Macchia Sacra" (Site of Community Importance (SCI): SICIT9310073). It
 was selected as it was suitable for thorough imaging by drone, which
 formed the basis of our ground-truthed biodiversity observations. After

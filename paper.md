@@ -58,7 +58,8 @@ affiliations:
 
 
 
-\* Corresponding author:
+\*
+Corresponding author:
 [marcantoniomatteo\@gmail.com](mailto:marcantoniomatteo@gmail.com){.email}
 
 Keywords: Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape

@@ -33,7 +33,7 @@ authors:
 - name: Saverio Vicario
   orcid: 0000-0003-1140-0483
   affiliation: 3
-bibliography: Paper.bib
+bibliography: paper.bib
 authors_short: Shayle et al. (2024) Phenological Diversity Trends By Remote Sensing
   Related Datacubes
 group: Project 6
@@ -295,7 +295,7 @@ surroundings within Calabria. The eight different plant community types
 are overlaid as differently coloured masks in transparency upon the
 image. The subset of the study site which was extracted from SENTINEL-2
 data is indicated within the red
-rectangle.](Figures-Images-USW/Figure%201%20study%20area%20V1.0.png){#Figure_1
+rectangle.](Figures-Images-USW/Figure_1_study_area_V1.0.png){#Figure_1
 .Figure width="700"}
 
 ## Efficacy Evaluation of our Results:
@@ -312,7 +312,7 @@ shadows [@karkauskaite2017evaluation].
 ![Figure 2: A time series illustrating changes in the value of the Plant
 Phenological Index (PPI) for every pixel within the Macchia Sacra
 Special Protection Area study site in
-Calabria.](Figures-Images-USW/Figure%202%20Time%20Series%20of%20PPI%20for%20Study%20Site%20V1.1.png){#Figure_2
+Calabria.](Figures-Images-USW/Figure_2_Time_Series_of_PPI_for_Study_Site_V1.1.png){#Figure_2
 .Figure width="600"}
 
 Using these data, we applied three analytical approaches to measure
@@ -341,7 +341,7 @@ communities classified by an expert botanist from the drone
 high-resolution image. The scale bar to the right of each plot indicates
 the assessed biodiversity value in the index being tested (e.g.
 Shannon's H index or Rao's Quadratic Diversity
-index).](Figures-Images-USW/Figure%203%20Results%20Overview%20Index%20Comparison%20V1.0.png){#Figure_3
+index).](Figures-Images-USW/Figure_3_Results_Overview_Index_Comparison_V1.0.png){#Figure_3
 .Figure}
 
 # Discussion:

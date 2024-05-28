@@ -277,7 +277,7 @@ graze in the area. This area is much dryer and subject to strong pasture
 pressure and mechanical disruption, but is more nutrient which, due to
 the presence of cow manure.
 
-![Figure 1: A true colour RGB satellite image (Map data: Google, Maxar
+![A true colour RGB satellite image (Map data: Google, Maxar
 Technologies 2023) giving an overview of the study site and its
 surroundings within Calabria. The eight different plant community types
 are overlaid as differently coloured masks in transparency upon the
@@ -297,7 +297,7 @@ by 27 pixels horizontally, and each pixel was 10m^2^. The PPI index was
 chosen as it is minimally influenced by soil signal and the presence of
 shadows [@karkauskaite2017evaluation].
 
-![Figure 2: A time series illustrating changes in the value of the Plant
+![A time series illustrating changes in the value of the Plant
 Phenological Index (PPI) for every pixel within the Macchia Sacra
 Special Protection Area study site in
 Calabria.](Figures-Images-USW/Figure_2_Time_Series_of_PPI_for_Study_Site_V1.1.png){#Figure_2
@@ -322,7 +322,7 @@ is no longer a "diversity" hotspot, and the main biodiversity hotspot
 moved to the borders between two of the communities identified by our
 expert.
 
-![Figure 3: A four panel plot comparing the efficacy of different
+![A four panel plot comparing the efficacy of different
 diversity indices at measuring biodiversity within our grassland
 ecosystem in Calabria. The white contour lines represent different plant
 communities classified by an expert botanist from the drone

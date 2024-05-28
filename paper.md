@@ -21,7 +21,7 @@ authors:
 - name: Elliot Shayle
   orcid: 0009-0008-2994-0887
   affiliation: 1
-- name: Matteo Marcantonio
+- name: Matteo Marcantonio\*
   orcid: 0000-0003-3896-2355
   affiliation: 2
 - name: Rocco Labadessa
@@ -55,18 +55,6 @@ affiliations:
 - name: ENEA, Strada per Crescentino, 13, Saluggia (VC), Italy
   index: 4
 ---
-
-Authors: E. Shayle (1), M. Marcantonio\* (2), R. Labadessa (3), C.
-Richiardi (4), & S. Vicario (3)
-
-1: Environmental Informatics, University of Marburg, Deutschhausstr.
-12 - 35032, Marburg, Germany
-
-2: Landlife Ecospatial Labs, Via Del Giontech, 1, Mezzocorna (TR), Italy
-
-3: CNR - IIA, Via Orabona, 4, Bari, Italy
-
-4: ENEA, Strada per Crescentino, 13, Saluggia (VC), Italy
 
 \* Corresponding author:
 [marcantoniomatteo\@gmail.com](mailto:marcantoniomatteo@gmail.com){.email}

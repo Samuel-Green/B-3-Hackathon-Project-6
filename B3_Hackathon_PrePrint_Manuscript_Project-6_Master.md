@@ -9,10 +9,10 @@ tags:
 - Phenology
 date: "03 April 2024"
 output:
+  word_document: default
   pdf_document: default
   html_document:
     df_print: paged
-  word_document: default
   rmarkdown::pdf_document:
     fig_caption: yes        
     includes:  
@@ -80,10 +80,10 @@ Heterogeneity, Remote Sensing, Time Series, Phenology
 
 # Introduction:
 
-The B3 Hackathon brought together computer scientists and ecologists
-from a variety of institutions to rapidly create novel informatics
-solutions to the biodiversity challenges facing the planet. We
-identified that the addition of time-weighting to the R package
+The B-Cubed Hackathon brought together computer scientists and
+ecologists from a variety of institutions to rapidly create novel
+informatics solutions to the biodiversity challenges facing the planet.
+We identified that the addition of time-weighting to the R package
 "`rasterdiv`" would be a worthwhile contribution to the environmental
 informatics community. `rasterdiv` was created to calculate biodiversity
 indices from numerical matrices in the R programming environment.
@@ -458,7 +458,7 @@ We thank:
     Tech4you PNRR project.
 
 -   The European Union's Horizon Europe Research and Innovation
-    Programme (ID No 101059592) for funding the B3 programme, and thus,
-    this event.
+    Programme (ID No 101059592) for funding the B-Cubed programme, and
+    thus, this event.
 
 # References:

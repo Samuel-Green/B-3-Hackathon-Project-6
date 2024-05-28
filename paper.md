@@ -56,14 +56,15 @@ affiliations:
   index: 4
 ---
 
+------------------------------------------------------------------------
 
-
-\*
-Corresponding author:
+\*Corresponding author:
 [marcantoniomatteo\@gmail.com](mailto:marcantoniomatteo@gmail.com){.email}
 
 Keywords: Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape
 Heterogeneity, Remote Sensing, Time Series, Phenology
+
+------------------------------------------------------------------------
 
 # Introduction:
 

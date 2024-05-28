@@ -9,10 +9,10 @@ tags:
 - Phenology
 date: "03 April 2024"
 output:
-  word_document: default
   pdf_document: default
   html_document:
     df_print: paged
+  word_document: default
   rmarkdown::pdf_document:
     fig_caption: yes        
     includes:  
@@ -56,6 +56,8 @@ affiliations:
   index: 4
 ---
 
+------------------------------------------------------------------------
+
 Authors: E. Shayle (1), M. Marcantonio\* (2), R. Labadessa (3), C.
 Richiardi (4), & S. Vicario (3)
 
@@ -73,6 +75,8 @@ Richiardi (4), & S. Vicario (3)
 
 Keywords: Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape
 Heterogeneity, Remote Sensing, Time Series, Phenology
+
+------------------------------------------------------------------------
 
 # Introduction:
 

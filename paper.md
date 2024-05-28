@@ -33,7 +33,7 @@ authors:
 - name: Saverio Vicario
   orcid: 0000-0003-1140-0483
   affiliation: 3
-bibliography: Paper.bib
+bibliography: paper.bib
 authors_short: Shayle et al. (2024) Phenological Diversity Trends By Remote Sensing
   Related Datacubes
 group: Project 6

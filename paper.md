@@ -180,7 +180,8 @@ implementations of TWDTW functions. In particular, the `twtwd` method
 was implemented through the internal hidden function `.mtwdtw`:
 
 ``` {#Code_1 .r .Code}
-.mtwdtw <- function(x, time_vector = 0, stepness = -0.5, midpoint = 35, cycle_length = "year", time_scale = "day") {
+.mtwdtw <- function(x, time_vector = 0, stepness = -0.5, midpoint = 35, 
+cycle_length = "year", time_scale = "day") {
     twdtw::twdtw(
         x = data.frame(time = time_vector, v = x[[1]]), 
         y = data.frame(time = time_vector, v = x[[2]]),
@@ -284,7 +285,7 @@ are overlaid as differently coloured masks in transparency upon the
 image. The subset of the study site which was extracted from SENTINEL-2
 data is indicated within the red
 rectangle.](Figures-Images-USW/Figure_1_study_area_V1.0.png){#Figure_1
-.Figure width="700"}
+.Figure}
 
 ## Efficacy Evaluation of our Results:
 
@@ -302,7 +303,7 @@ is minimally influenced by soil signal and the presence of shadows
 Phenological Index (PPI) for every pixel within the Macchia Sacra
 Special Protection Area study site in
 Calabria.](Figures-Images-USW/Figure_2_Time_Series_of_PPI_for_Study_Site_V1.1.png){#Figure_2
-.Figure width="600"}
+.Figure}
 
 Using these data, we applied three analytical approaches to measure
 biodiversity: i) The Shannon's Biodiversity index applied to the mean

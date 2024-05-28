@@ -303,11 +303,12 @@ rectangle.](Figures-Images-USW/Figure_1_study_area_V1.0.png){#Figure_1
 We used a time series of 144 Plant Phenological Index (PPI) images
 derived from SENTINEL-2 imagery and available through the Copernicus
 Service High Resolution Vegetation Phenology and Productivity (HRVPP)
-encompassing all data which were available in 2023 ([Figure
-2](#Figure_2)). The dimensions of each image were 20 pixels vertically
-by 27 pixels horizontally, and each pixel was 10m^2^. The PPI index was
-chosen as it is minimally influenced by soil signal and the presence of
-shadows [@karkauskaite2017evaluation].
+(data acquired via: <https://scihub.copernicus.eu/>) encompassing all
+data which were available in 2023 ([Figure
+2](#0){style="font-size: 11pt;"}). The dimensions of each image were 20
+pixels vertically by 27 pixels horizontally, and each pixel was 10m^2^.
+The PPI index was chosen as it is minimally influenced by soil signal
+and the presence of shadows [@karkauskaite2017evaluation].
 
 ![Figure 2: A time series illustrating changes in the value of the Plant
 Phenological Index (PPI) for every pixel within the Macchia Sacra

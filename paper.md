@@ -439,7 +439,7 @@ the landscape scale via satellite is eminently valuable. However, as
 Maus *et al* [@Maus2016] observed, markedly different land use types,
 such as soy bean plantations and primary rainforest, can be erroneously
 classified as the same via an NDVI based classification protocol which
-does not consider phenology. Multiple studies [@Maus2016] [@Lopes2020]
+does not consider phenology. Multiple studies [@Maus2016; @Lopes2020]
 also found that accounting for the effects of phenology significantly
 increased the accuracy of land use classifications. As rewilding and
 reforestation programmes continue, our implementation of TWDTW reduces

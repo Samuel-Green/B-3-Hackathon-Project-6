@@ -1,5 +1,5 @@
 ---
-title: 'Phenological Diversity Trends With Remote Sensing Datacubes'
+title: 'Phenological Diversity Trends with Remote Sensing Datacubes'
 tags:
 - Rao's Q Index
 - Time-Weighted Dynamic Time Warping
@@ -7,7 +7,7 @@ tags:
 - Remote Sensing
 - Time Series
 - Phenology
-date: "03 April 2024"
+date: "06 June 2024"
 output:
   pdf_document: default
   word_document: default
@@ -34,8 +34,7 @@ authors:
   orcid: 0000-0003-1140-0483
   affiliation: 3
 bibliography: paper.bib
-authors_short: Shayle et al. (2024) Phenological Diversity Trends By Remote Sensing
-  Related Datacubes
+authors_short: Shayle et al. (2024) Phenological Diversity Trends with Remote Sensing Datacubes
 group: Project 6
 event: Hacking Biodiversity Data Cubes for Policy, Brussels, Belgium, 2024
 biohackathon_name: Hacking Biodiversity Data Cubes for Policy
@@ -58,13 +57,54 @@ affiliations:
 
 ------------------------------------------------------------------------
 
-\*Corresponding author:
+\* Corresponding author:
 [marcantoniomatteo\@gmail.com](mailto:marcantoniomatteo@gmail.com){.email}
 
-Keywords: Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape
+#### Keywords:
+
+Rao's Q Index, Time-Weighted Dynamic Time Warping, Landscape
 Heterogeneity, Remote Sensing, Time Series, Phenology
 
 ------------------------------------------------------------------------
+
+# Abstract:
+
+During the 2024 B-Cubed Hackathon, we extended the R package
+"`rasterdiv`" by incorporating Time-Weighted Dynamic Time Warping
+(TWDTW) to the package's pre-existing `paRao()` function for the
+calculation of parametric Rao's Quadratic Diversity (Rao's Q) index. The
+implementation within "`rasterdiv`" uses the "`twtwd`" function from the
+`TWDTW` R package. This enhances the user's ability to accurately assess
+biodiversity when using contemporary remote sensing tools like satellite
+images. As some biodiversity indices (e.g. Shannon's H) do not account
+for spatio-temporal dynamics at all, and others (e.g. Rao's Q) only
+include the spatial dimension, significant variations in phenology are
+often overlooked.
+
+Through integrating TWDTW into the `paRao()` function, users can better
+assess an ecosystem's biodiversity by accounting for phenological
+differences among its constituent flora. This is particularly valuable
+for distinguishing between natural habitats and artificial land cover
+types, which can lack phenological changes. Previous studies have also
+found that the time weighting ability of TWDTW enables the discernment
+of different floral community types which could otherwise be
+misclassified as the same by traditional Dynamic Time Warping (DTW)
+approaches.
+
+To evaluate the efficacy of TWDTW within the `paRao()` function, we
+compared the ability of TWDTW Rao's Q index with other biodiversity
+indices at classifying the different floral communities in a disturbed
+grassland in Calabria, Italy. Our study used a time series of Planet
+Phenological Index (PPI) data from the Sentinel-2 satellite network. The
+results indicated that accounting for phenological cycles can filter out
+artefacts and better classify floral communities. This improves the
+ability to assess ecosystem health and resilience, providing a more
+comprehensive understanding of biodiversity dynamics.
+
+We conclude that the inclusion of phenology in biodiversity assessment
+is necessary, and that our modifications of `paRao()` will be valuable
+to facilitate the accurate detection and description of ecosystem trends
+in response to our changing environment.
 
 # Introduction:
 
@@ -163,11 +203,11 @@ temporal separation, and $\beta$ is the midpoint of the curve, the
 threshold below which separation in time does not substantially impact
 the other components of the equation. Lastly, $g(t_i,t_j)$ represents
 the time elapsed between the dates evaluated in the match ($t_i$ and
-$t_j$ times of the $i$th and $j$th observations).
+$t_j$ times of the $i$^th^ and $j$^th^ observations).
 
 $$ \omega_{i,j} = \frac{1}{1 + e^{-\alpha(g(t_i,t_j) - \beta)}} \tag{1} $$
 
-In this manuscript, we used Copernicus SENTINEL-2 mission's optical data
+In this manuscript, we used Copernicus Sentinel-2 mission's optical data
 of a small, grazed grassland site in Calabria, Italy to demonstrate and
 evaluate our R-based `rasterdiv` implementation of phenology into Rao's
 Q index. We also evaluated its efficacy in comparison to the Shannon's H
@@ -286,7 +326,7 @@ the presence of cow manure.
 Technologies 2023) giving an overview of the study site and its
 surroundings within Calabria. The eight different plant community types
 are overlaid as differently coloured masks in transparency upon the
-image. The subset of the study site which was extracted from SENTINEL-2
+image. The subset of the study site which was extracted from Sentinel-2
 data is indicated within the red
 rectangle.](Figures-Images-USW/Figure_1_study_area_V1.0.png){#Figure_1
 .Figure}
@@ -294,7 +334,7 @@ rectangle.](Figures-Images-USW/Figure_1_study_area_V1.0.png){#Figure_1
 ## Efficacy Evaluation of our Results:
 
 We used a time series of 144 Plant Phenological Index (PPI) images
-derived from SENTINEL-2 imagery and available through the Copernicus
+derived from Sentinel-2 imagery and available through the Copernicus
 Service High Resolution Vegetation Phenology and Productivity (HRVPP)
 (data acquired via: <https://scihub.copernicus.eu/>) encompassing all
 data which were available in 2023 ([Figure 2](#Figure_2)). The

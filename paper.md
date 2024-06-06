@@ -72,39 +72,39 @@ Heterogeneity, Remote Sensing, Time Series, Phenology
 During the 2024 B-Cubed Hackathon, we extended the R package
 "`rasterdiv`" by incorporating Time-Weighted Dynamic Time Warping
 (TWDTW) to the package's pre-existing `paRao()` function for the
-calculation of parametric Rao's Quadratic Diversity (Rao's Q) index. The
-implementation within "`rasterdiv`" uses the "`twtwd`" function from the
-`TWDTW` R package. This enhances the user's ability to accurately assess
-biodiversity when using contemporary remote sensing tools like satellite
-images. As some biodiversity indices (e.g. Shannon's H) do not account
-for spatio-temporal dynamics at all, and others (e.g. Rao's Q) only
-include the spatial dimension, significant variations in phenology are
-often overlooked.
+calculation of parametric Rao's Quadratic Diversity (Rao's Q) index.
+This expands the user's ability to biodiversity trends when using time
+series of Earth Observations. Biodiversity indices like Shannon's H do
+not consider spatio-temporal dynamics, and others (e.g. Rao's Q) only
+incorporate geographic distance between observations, often leaving
+phenological variation overlooked.
 
-Through integrating TWDTW into the `paRao()` function, users can better
-assess an ecosystem's biodiversity by accounting for phenological
-differences among its constituent flora. This is particularly valuable
-for distinguishing between natural habitats and artificial land cover
-types, which can lack phenological changes. Previous studies have also
-found that the time weighting ability of TWDTW enables the discernment
-of different floral community types which could otherwise be
-misclassified as the same by traditional Dynamic Time Warping (DTW)
-approaches.
+Through integrating TWDTW into the `paRao()` function, users can assess
+different facets of an ecosystem's biodiversity by incorporating
+phenological differences among its plant communities. This is also
+valuable to distinguish between natural habitats that follow a seasonal
+phenological trend and artificial land cover types, which may lack
+phenological changes. Previous studies have also found that the time
+weighting ability of TWDTW enables the discernment of different floral
+community types which could otherwise be misclassified as the same with
+traditional Dynamic Time Warping (DTW).
 
 To evaluate the efficacy of TWDTW within the `paRao()` function, we
-compared the ability of TWDTW Rao's Q index with other biodiversity
-indices at classifying the different floral communities in a disturbed
-grassland in Calabria, Italy. Our study used a time series of Planet
-Phenological Index (PPI) data from the Sentinel-2 satellite network. The
-results indicated that accounting for phenological cycles can filter out
-artefacts and better classify floral communities. This improves the
-ability to assess ecosystem health and resilience, providing a more
-comprehensive understanding of biodiversity dynamics.
+compared the ability of TWDTW Rao's Q index against other biodiversity
+indices at classifying the different plant communities in a disturbed
+grassland in Calabria, Italy. Our study used a Planet Phenological Index
+(PPI) time series from the Sentinel-2 satellite network. The results
+indicated that accounting for phenological cycles can filter out
+artefacts and better distinguish habitats with differing plant species
+diversity. This improves the ability to assess ecosystem changes through
+space and time, providing a more comprehensive understanding of
+biodiversity dynamics, and the ability to gauge the resilience of
+different vegetation patches.
 
-We conclude that the inclusion of phenology in biodiversity assessment
-is necessary, and that our modifications of `paRao()` will be valuable
-to facilitate the accurate detection and description of ecosystem trends
-in response to our changing environment.
+We conclude that the inclusion of plant phenology in biodiversity
+assessment is necessary, and that our modifications to `paRao()` will be
+valuable to facilitate the accurate detection and description of
+ecosystem trends in response to our changing environment.
 
 # Introduction:
 

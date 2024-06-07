@@ -92,7 +92,7 @@ traditional Dynamic Time Warping (DTW).
 To evaluate the efficacy of TWDTW within the `paRao()` function, we
 compared the ability of TWDTW Rao's Q index against other biodiversity
 indices at classifying the different plant communities in a disturbed
-grassland in Calabria, Italy. Our study used a Planet Phenological Index
+grassland in Calabria, Italy. Our study used a Plant Phenological Index
 (PPI) time series from the Sentinel-2 satellite network. The results
 indicated that accounting for phenological cycles can filter out
 artefacts and better distinguish habitats with differing plant species
@@ -489,5 +489,8 @@ We thank:
 -   The European Union's Horizon Europe Research and Innovation
     Programme (ID No 101059592) for funding the B-Cubed programme, and
     thus, this event.
+
+-   The Research Foundation - Flanders (FWO) and KU Leuven for the
+    support they gave us in making this event possible.
 
 # References:
